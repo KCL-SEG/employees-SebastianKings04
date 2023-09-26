@@ -24,12 +24,12 @@ class MonthlyEmployee(Employee):
         return self.monthlyPay
     
     def __str__(self):
-        sentence = f"{self.name} works on a monthly salary of {self.monthlyPay} "
+        sentence = f"{self.name} works on a monthly salary of {self.monthlyPay}"
         if self.contractNumber:
             sentence += f"and recieves a commision for {self.contractNumber} contract(s) at {self.contractRate}/contract"
         elif self.contractRate:
             sentence += f"and recieves a bonus commission of {self.contractRate}"
-        sentence += f". Their total pay is {self.get_pay()}"
+        sentence += f". Their total pay is {self.get_pay()}."
         return sentence
 
 class ContractEmployee(Employee):
@@ -43,12 +43,12 @@ class ContractEmployee(Employee):
         return self.hourlyPay * self.hours
 
     def __str__(self):
-        sentence = f"{self.name} works on a contract of {self.hours} hours at {self.hourlyPay}/hour "
+        sentence = f"{self.name} works on a contract of {self.hours} hours at {self.hourlyPay}/hour"
         if self.contractNumber:
-            sentence += f"and recieves a commision for {self.contractNumber} contract(s) at {self.contractRate}/contract"
+            sentence += f" and recieves a commision for {self.contractNumber} contract(s) at {self.contractRate}/contract"
         elif self.contractRate:
             sentence += f"and recieves a bonus commission of {self.contractRate}"
-        sentence += f". Their total pay is {self.get_pay()}"
+        sentence += f". Their total pay is {self.get_pay()}."
         return sentence
 
 
