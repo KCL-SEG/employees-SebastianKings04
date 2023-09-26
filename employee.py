@@ -21,7 +21,12 @@ class MonthlyEmployee(Employee):
         self.monthlyPay = monthlyPay
     
     def get_pay(self):
-        return self.monthlyPay
+        pay = self.monthlyPay
+        if self.contractNumber:
+            pay += (self.contractNumber * self.contractRate)
+        elif self.contractRate:
+            pay += self.contractRate
+        return pay
     
     def __str__(self):
         sentence = f"{self.name} works on a monthly salary of {self.monthlyPay}"
@@ -40,7 +45,12 @@ class ContractEmployee(Employee):
         self.hours = hours
     
     def get_pay(self):
-        return self.hourlyPay * self.hours
+        pay = (self.hourlyPay * self.hours)
+        if self.contractNumber:
+            pay += (self.contractNumber * self.contractRate)
+        elif self.contractRate:
+            pay += self.contractRate
+        return pay
 
     def __str__(self):
         sentence = f"{self.name} works on a contract of {self.hours} hours at {self.hourlyPay}/hour"
@@ -60,12 +70,15 @@ charlie = ContractEmployee('Charlie', 25, 100)
 
 # Renee works on a monthly salary of 3000 and receives a commission for 4 contract(s) at 200/contract.  Their total pay is 3800.
 renee = MonthlyEmployee('Renee', 3000, 200, 4)
+print(renee.get_pay())
 
 # Jan works on a contract of 150 hours at 25/hour and receives a commission for 3 contract(s) at 220/contract.  Their total pay is 4410.
 jan = ContractEmployee('Jan', 25, 150, 220, 3)
+print(jan.get_pay())
 
 # Robbie works on a monthly salary of 2000 and receives a bonus commission of 1500.  Their total pay is 3500.
 robbie = MonthlyEmployee('Robbie', 2000, 1500)
+print(robbie.get_pay())
 
 # Ariel works on a contract of 120 hours at 30/hour and receives a bonus commission of 600.  Their total pay is 4200.
 ariel = ContractEmployee('Ariel', 30, 120, 600)
