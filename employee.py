@@ -33,7 +33,7 @@ class MonthlyEmployee(Employee):
         if self.contractNumber:
             sentence += f" and recieves a commision for {self.contractNumber} contract(s) at {self.contractRate}/contract"
         elif self.contractRate:
-            sentence += f"and recieves a bonus commission of {self.contractRate}"
+            sentence += f" and recieves a bonus commission of {self.contractRate}"
         sentence += f". Their total pay is {self.get_pay()}."
         return sentence
 
@@ -57,7 +57,7 @@ class ContractEmployee(Employee):
         if self.contractNumber:
             sentence += f" and recieves a commision for {self.contractNumber} contract(s) at {self.contractRate}/contract"
         elif self.contractRate:
-            sentence += f"and recieves a bonus commission of {self.contractRate}"
+            sentence += f" and recieves a bonus commission of {self.contractRate}"
         sentence += f". Their total pay is {self.get_pay()}."
         return sentence
 
