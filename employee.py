@@ -31,7 +31,7 @@ class MonthlyEmployee(Employee):
     def __str__(self):
         sentence = f"{self.name} works on a monthly salary of {self.monthlyPay}"
         if self.contractNumber:
-            sentence += f"and recieves a commision for {self.contractNumber} contract(s) at {self.contractRate}/contract"
+            sentence += f" and recieves a commision for {self.contractNumber} contract(s) at {self.contractRate}/contract"
         elif self.contractRate:
             sentence += f"and recieves a bonus commission of {self.contractRate}"
         sentence += f". Their total pay is {self.get_pay()}."
